@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <golalbal-header :user="currentUser"></golalbal-header>
+    <router-view></router-view>
     <!-- <column-list :list="list"></column-list> -->
-    <form action>
+    <!-- <form action>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
-        <!-- @blur="validateEmail"失去焦点验证邮箱 -->
         <input
           type="email"
           class="form-control"
@@ -20,7 +20,7 @@
         <label for="exampleInputPassword1" class="form-label">密码</label>
         <input type="password" class="form-control" id="exampleInputPassword1" />
       </div>
-    </form>
+    </form>-->
   </div>
 </template>
 

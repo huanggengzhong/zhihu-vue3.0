@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  // 原生的ref的解释,可以监听到数据
+  // let x = 0
+  // let y = 0
+  // console.log(x, y, "1111");
+
+  // function updateObject() {
+  //   x = 2
+  //   y = 3
+  // }
+  // updateObject()
+  // console.log(x, y, "2222");
+  // 上面依次是:0,2
+
+
+  // 使用reactive要加toRefs包裹的解释
+  reactive类似对象的解构一样
+  const pos = {
+    x: 0,
+    y: 0
+  }
+
+  function updateObject() {
+    pos.x = 2
+    pos.y = 3
+  }
+  updateObject()
+  console.log(pos, "111");
+  const {
+    x
+  } = pos
+  console.log(pos, "222");
+  pos.x = 3
+  console.log(pos, "333"); //结果上面每次打印的x都变为3了,因为是引用类型,没有响应式监听到
+</script>

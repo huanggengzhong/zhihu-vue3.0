@@ -1,5 +1,5 @@
 <template>
-  <!-- vue3.0生命周期 -->
+  <!-- 使用toRefs来去除多余的data -->
   <div>
     <h1>{{count}}</h1>
     <h1>{{double}}</h1>
@@ -7,15 +7,7 @@
   </div>
 </template>
 <script lang="ts">
-import {
-  ref,
-  computed,
-  reactive,
-  toRefs,
-  onMounted,
-  onUpdated,
-  onRenderTracked
-} from "vue";
+import { ref, computed, reactive, toRefs } from "vue";
 interface DataProps {
   count: number;
   double: number;
@@ -23,19 +15,6 @@ interface DataProps {
 }
 export default {
   setup() {
-    // 生命周期演示 start
-    onMounted(() => {
-      console.log("onMounted");
-    });
-    onUpdated(() => {
-      console.log("onUpdated");
-    });
-    onRenderTracked(event => {
-      console.log(event, "onRenderTracked");
-    });
-
-    // 生命周期演示 end
-
     const data: DataProps = reactive({
       count: 0,
       increase: () => {
@@ -43,6 +22,7 @@ export default {
       },
       double: computed(() => data.count * 2)
     });
+    // 这里用toRefs来包裹,使它变为响应式数据
     const refData = toRefs(data);
     return {
       // 这里解构

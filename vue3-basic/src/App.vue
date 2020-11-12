@@ -1,19 +1,22 @@
 <template>
-  <!-- vue3.0鼠标跟踪器 -->
+  <!-- vue3.0封装一个全局loading显示异步加载 -->
   <div>
-    <h1>X坐标:{{x}}</h1>
-    <h1>Y坐标:{{y}}</h1>
+    <h1 v-if="loading">loading......</h1>
+    <img v-if="loaded" :src="result.message" alt />
   </div>
 </template>
 <script lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import useMousePOsition from "./hooks/useMousePosition";
+import useURLLoading from "./hooks/useURLLoading";
 export default {
   setup() {
-    const { x, y } = useMousePOsition();
+    const { result, loading, loaded } = useURLLoading(
+      "https://dog.ceo/api/breeds/image/random"
+    );
     return {
-      x,
-      y
+      result,
+      loading,
+      loaded
     };
   }
 };

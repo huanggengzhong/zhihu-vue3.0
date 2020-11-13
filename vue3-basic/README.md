@@ -315,4 +315,25 @@ export default {
 第二：我们可以 xy 可以设置任何别名，这样就避免了命名冲突的风险。
 第三：这段逻辑可以脱离组件存在，因为它本来就和组件的实现没有任何关系，我们不需要添加任何组件实现相应的功能。只有逻辑代码在里面，不需要模版。
 
-</script>
+### 泛型改造
+
+```js
+// 为函数添加泛型
+function useURLLoader<T>(url: string) {
+  const result = (ref < T) | (null > null);
+}
+// 在应用中的使用，可以定义不同的数据类型
+interface DogResult {
+  message: string;
+  status: string;
+}
+interface CatResult {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+}
+
+// 免费猫图片的 API  https://api.thecatapi.com/v1/images/search?limit=1
+const { result, loading, loaded } = useURLLoader<CatResult[]>('https://api.thecatapi.com/v1/images/search?limit=1')
+```

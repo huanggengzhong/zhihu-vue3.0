@@ -24,7 +24,7 @@
   // }
   // updateObject()
   // console.log(x, "2222");
-  // 上面依次是:0,2
+  // 上面依次是:1,2
 
 
   // 使用reactive要加toRefs包裹的解释
@@ -46,5 +46,5 @@
   console.log(x, "222");
 
   pos.x = 3
-  console.log(pos.x, "333"); //因为是引用类型,没有响应式监听到
+  console.log(pos.x, "333"); //1,2,3因为是引用类型,没有响应式监听到
 </script>

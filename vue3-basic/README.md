@@ -337,3 +337,31 @@ interface CatResult {
 // 免费猫图片的 API  https://api.thecatapi.com/v1/images/search?limit=1
 const { result, loading, loaded } = useURLLoader<CatResult[]>('https://api.thecatapi.com/v1/images/search?limit=1')
 ```
+
+### defineComponent 包裹组件(使用它支持 vue2 的写法,里面的值都具有响应式)
+
+```js
+// const component = {
+//   name: "HelloWorld",
+//   props: {
+//     msg: String,
+//   },
+//   // setup//没有使用defineComponet没提示
+// };
+// export default component;
+// 正确做法
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "HelloWorld",
+  props: {
+    msg: String,
+  },
+  setup(props, context) {
+    console.log(props.msg); //这里可以自动推论出上面的msg
+    console.log(context.emit); //context是上下文对象
+    console.log(context.attrs);
+    console.log(context.slots);
+  },
+});
+```

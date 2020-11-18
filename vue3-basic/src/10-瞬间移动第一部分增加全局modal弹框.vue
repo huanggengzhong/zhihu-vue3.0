@@ -2,7 +2,7 @@
  * @Description: 
  * @Date: 2020-11-11 09:10:30
  * @LastEditors: gengzhong
- * @LastEditTime: 2020-11-18 09:49:16
+ * @LastEditTime: 2020-11-18 09:50:29
 -->
 <template>
   <!-- vue3.0封装一个全局loading显示异步加载 -->

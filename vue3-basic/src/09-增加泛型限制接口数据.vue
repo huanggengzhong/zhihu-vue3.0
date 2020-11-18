@@ -2,18 +2,16 @@
  * @Description: 
  * @Date: 2020-11-11 09:10:30
  * @LastEditors: gengzhong
- * @LastEditTime: 2020-11-18 09:49:16
+ * @LastEditTime: 2020-11-13 14:10:20
 -->
 <template>
   <!-- vue3.0封装一个全局loading显示异步加载 -->
   <div>
     <h1 v-if="loading">loading......</h1>
     <img v-if="loaded" :src="result[0].url" alt />
-    <Model />
   </div>
 </template>
 <script lang="ts">
-import Model from "./components/Model.vue";
 import { watch } from "vue";
 import useURLLoading from "./hooks/useURLLoadingT";
 interface DogResult {
@@ -27,7 +25,6 @@ interface CatResult {
   height: number;
 }
 export default {
-  components: { Model },
   setup() {
     // const { result, loading, loaded } = useURLLoading<DogResult>(
     //   "https://dog.ceo/api/breeds/image/random"

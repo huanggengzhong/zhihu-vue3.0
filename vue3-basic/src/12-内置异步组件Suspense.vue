@@ -4,10 +4,7 @@
     <Suspense>
       <!-- 默认完成的组件显示 -->
       <template #default>
-        <div>
-          <async-show />
-          <dog-show />
-        </div>
+        <async-show />
       </template>
       <!-- 未完成的组件显示,关键字fallback -->
       <template #fallback>
@@ -18,9 +15,8 @@
 </template>
 <script lang="ts">
 import AsyncShow from "./components/AsyncShow.vue";
-import DogShow from "./components/DogShow.vue";
 import { ref } from "vue";
 export default {
-  components: { AsyncShow, DogShow }
+  components: { AsyncShow }
 };
 </script>
